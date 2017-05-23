@@ -1,0 +1,19 @@
+
+
+{
+  "root": true,
+  "extends": "fortech",
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "rules": {
+    "no-console": 0,
+    "jsx-a11y/img-has-alt": 0
+  }
+}
