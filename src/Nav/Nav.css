@@ -1,0 +1,28 @@
+.navBar {
+  display: flex;
+  flex-warp: wrap;
+  background-color: 	#5bc0de;
+  position:fixed;
+  top: 0px;
+  left: 0px;
+  height: 60px;
+  width: 100%;
+}
+
+.navBar .show {
+  border: none;
+  background-color:#428bca;
+  color: white;
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+.navBar .wList {
+  border: solid gray;
+  background-color: white;
+  height: 260px;
+  width:402px;
+  position: realtive;
+  left: 300px;
+  overflow-y: scroll;
+}

@@ -1,11 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Hai from "./testComponent/hello";
+import MovieList from "./MovieList/MovieList";
 
-ReactDOM.render(
-    <Hai />,
-    document.getElementById( "root" ),
-);
+ReactDOM.render( <MovieList />, document.getElementById( "root" ) );
 
-console.log( "This little puggy...inside logic" );
+/* setInterval( () => {
+    console.log( `document scrolled ${ window.scrollY }` );
+}, 500 );*/
+
+/* const scrollManager = () => {
+    console.log( "scrolling body" );
+};*/
+
+/* window.onscroll = () => {
+    console.log( "scrolling window" );
+};*/

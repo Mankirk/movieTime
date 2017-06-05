@@ -1,12 +1,4 @@
-body {
-  font-family: sans-serif;
-}
 
-h2 {
-  border: solid orange;
-  font-size: 25px;
-}
-
-table th {
-  padding: 5px;
+.container {
+  margin-top: 100px;
 }

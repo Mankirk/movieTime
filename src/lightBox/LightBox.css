@@ -1,0 +1,64 @@
+.lightBox{
+  background-color: white;
+  position: fixed;
+  z-index: 10;
+  top: 100px;
+  left: 660px;
+  border:solid gray ;
+  width: 500px;
+  height: 600px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+ .hidden {
+  display: none;
+}
+
+.lightBox iframe{
+  width: 100%;
+  height: 300px;
+  border:none;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+}
+.lightBox button {
+  border: none;
+  color: white;
+  background-color: orange;
+  font-size: 20px;
+  font-weight: bold;
+  height: 60px;
+  width: 120px;
+  position: relative ;
+  bottom: -50px;
+  right: -350px;
+  border-radius: 5px;
+}
+
+.lightBox .details {
+  margin: 10px;
+}
+
+.lightBox .details .label {
+  display: flex;
+}
+
+.lightBox .details .name {
+  text-align: right;
+  width: 20%;
+  font-weight: bold;
+}
+
+.lightBox .details .value {
+  width: 75%;
+  text-align: center;
+}
+
+#shadow {
+  position: fixed;
+  top: 60px;
+  left: 0px;
+  width: 100%;
+  height: 2000px;
+  background-color: rgba( 0, 0, 0, 0.4);
+}
