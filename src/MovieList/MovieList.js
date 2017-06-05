@@ -20,22 +20,14 @@ export default class MovieList extends React.Component {
         this.removeFromWatchList = this.removeFromWatchList.bind( this );
         this.buildMovie = this.buildMovie.bind( this );
         this.toggleLightBox = this.toggleLightBox.bind( this );
+        this.handleScroll = this.handleScroll.bind( this );
     }
 
     componentDidMount( ) {
         this.fetchAndUpdateMovies( 1 ); // fetchmovies
 
-        let lastPositionOfUpdate = 0;
-        window.addEventListener( "scroll", () => {
-            let scrollDistanceToNextUpdate = window.innerHeight * 1.2;// 1040;
-            if ( this.state.movies.length === 10 ) {
-                scrollDistanceToNextUpdate = window.innerHeight / 10;
-            }
-            if ( ( window.scrollY - lastPositionOfUpdate ) > scrollDistanceToNextUpdate ) {
-                lastPositionOfUpdate = window.scrollY;
-                this.fetchAndUpdateMovies( this.state.nrOfPages + 1 );
-            }
-        } );
+        // const lastPositionOfUpdate = 0;
+        window.addEventListener( "scroll", this.handleScroll );
         /* window.onscroll = () => {
           // k? this is hardcoded and it should work dynamicaly
             let scrollDistanceToNextUpdate = window.innerHeight * 1.2;// 1040;
@@ -49,13 +41,12 @@ export default class MovieList extends React.Component {
         };*/
     }
 
-    handleScroll( up ) {
-        let scrollDistanceToNextUpdate = window.innerHeight * 1.2;// 1040;
-        if ( this.state.movies.length === 10 ) {
-            scrollDistanceToNextUpdate = window.innerHeight / 10;
+    handleScroll() {
+        const docHeight = document.body.clientHeight;
+        if ( this.state.nrOfPages === 9 ) {
+            console.log( "got 10pages" );
         }
-        if ( ( window.scrollY - up ) > scrollDistanceToNextUpdate ) {
-            lastPositionOfUpdate = window.scrollY;
+        if ( ( window.innerHeight + window.scrollY > docHeight ) && ( this.state.nrOfPages <= 9 ) ) {
             this.fetchAndUpdateMovies( this.state.nrOfPages + 1 );
         }
     }
@@ -141,8 +132,6 @@ export default class MovieList extends React.Component {
 }
 
 const parseMovies = ( movies ) => {
-  // remove parantheses
-  // add inWatchList property
     movies.forEach( ( movie ) => {
         removeTitleParanthesis( movie );
         addWatchListProperty( movie );
