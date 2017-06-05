@@ -24,34 +24,19 @@ export default class MovieList extends React.Component {
     }
 
     componentDidMount( ) {
-        this.fetchAndUpdateMovies( 1 ); // fetchmovies
+        this.fetchMovies( 1 ); // fetchmovies
 
-        // const lastPositionOfUpdate = 0;
         window.addEventListener( "scroll", this.handleScroll );
-        /* window.onscroll = () => {
-          // k? this is hardcoded and it should work dynamicaly
-            let scrollDistanceToNextUpdate = window.innerHeight * 1.2;// 1040;
-            if ( this.state.movies.length === 10 ) {
-                scrollDistanceToNextUpdate = window.innerHeight / 10;
-            }
-            if ( ( window.scrollY - lastPositionOfUpdate ) > scrollDistanceToNextUpdate ) {
-                lastPositionOfUpdate = window.scrollY;
-                this.fetchAndUpdateMovies( this.state.nrOfPages + 1 );
-            }
-        };*/
     }
 
     handleScroll() {
-        const docHeight = document.body.clientHeight;
-        if ( this.state.nrOfPages === 9 ) {
-            console.log( "got 10pages" );
-        }
-        if ( ( window.innerHeight + window.scrollY > docHeight ) && ( this.state.nrOfPages <= 9 ) ) {
-            this.fetchAndUpdateMovies( this.state.nrOfPages + 1 );
+        const docHeight = document.documentElement.scrollHeight;
+        if ( ( window.innerHeight + window.scrollY === docHeight ) && !( this.state.nrOfPages >= 10 ) ) {
+            this.fetchMovies( this.state.nrOfPages + 1 );
         }
     }
 
-    fetchAndUpdateMovies( page ) {
+    fetchMovies( page ) {
         fetch( "/getMovies", {
             method: "POST",
             headers: {

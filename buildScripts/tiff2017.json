@@ -889,5 +889,13 @@
       "url":"/film/yamato-california",
       "id":99,
       "ytUrl":"https://www.youtube.com/embed/VdrVlDLIb8c"
+   },{
+      "titleOriginal":"( POUR LA PEAU D’UN FLIC )",
+      "titleRo":"AFACEREA PIGOT",
+      "country":"FRANŢA ",
+      "year":"1981",
+      "url":"/film/afacerea-pigot",
+      "id":1,
+      "ytUrl":"https://www.youtube.com/embed/BP7cZ0CHXaQ"
    }
 ]
